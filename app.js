@@ -73,10 +73,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function resetTimer() {
-        clearInterval(myInterval); // Detiene el temporizador
-        session.textContent = "25"; // Restablece a 25:00 (puedes cambiarlo)
+        clearInterval(myInterval); 
+        session.textContent = "25"; 
         secondDiv.textContent = "00";
-        circle.style.strokeDashoffset = "0"; // Resetea la barra de progreso
+        circle.style.strokeDashoffset = "0"; 
         state = true;
     }
 
