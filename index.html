@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PomodoroApp</title>
+    <link rel="icon" type="image/png" href="tomate.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <button class="btn-reset">⟳</button>
+        <h1>Pomodoro</h1>
+        <p class="app-message">Press "Start" when you are ready</p>
+        <p class="app-message">Set your minutes before starting</p>
+        
+        <div class="app-circle">
+            <svg class="progress-ring" width="200" height="200">
+                <circle class="progress-ring-circle" stroke="#bf5239" stroke-width="10" fill="transparent"
+                        r="90" cx="100" cy="100"
+                        stroke-dasharray="565.48" stroke-dashoffset="0"/>
+            </svg>
+            <div class="app-counter-box">
+                <p><span class="minutes">25</span>:<span class="seconds">00</span></p>
+            </div>
+        </div>
+        <button class="btn-start">Start</button>
+        <br>
+        <button class="btn-set-time">Set Time</button>
+        <input type="number" id="timeInput" class="input-time" placeholder="Set minutes here" min="1" max="60">
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
