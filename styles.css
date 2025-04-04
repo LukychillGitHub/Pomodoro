@@ -127,3 +127,12 @@ button:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
 }
+
+#pomodoro-leave {
+    width: 20%;
+    position: relative;
+    bottom: 48%;
+    left: 32%;
+    rotate: degrees(90);
+    z-index: -1;
+}
