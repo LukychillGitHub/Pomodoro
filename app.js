@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const bells = new Audio('./sounds/bell.wav'); 
+    const bells = new Audio('ring.mp3'); 
+    const music = new Audio('lofi.mp3');
+    music.volume = 0.5;
     const startBtn = document.querySelector('.btn-start'); 
     const setTimeBtn = document.querySelector('.btn-set-time'); 
     const resetBtn = document.querySelector('.btn-reset');
@@ -31,6 +33,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+            // Reproducir música lo-fi al iniciar el temporizador
+            music.play();
+            music.loop = true; // Repetir la música mientras dure el temporizador
+
             myInterval = setInterval(updateSeconds, 1000);
         } else {
             alert('La sesión ya ha comenzado.');
@@ -52,8 +58,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (totalSeconds === 0) {
-            bells.play();
-            clearInterval(myInterval);
+            // Detener música lo-fi y reproducir música de campanilla
+            music.pause(); 
+            music.currentTime = 0; // Reiniciar la música lo-fi
+
+            bells.play(); // Reproducir el sonido de campanilla
+
+            clearInterval(myInterval); // Detener el temporizador
         }
     }
 
@@ -73,10 +84,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function resetTimer() {
-        clearInterval(myInterval); 
-        session.textContent = "25"; 
+        clearInterval(myInterval); // Detiene el temporizador
+        session.textContent = "25"; // Restablece a 25:00 (puedes cambiarlo)
         secondDiv.textContent = "00";
-        circle.style.strokeDashoffset = "0"; 
+        circle.style.strokeDashoffset = "0"; // Resetea la barra de progreso
+        music.pause(); // Detener la música lo-fi
+        music.currentTime = 0; // Reiniciar la música lo-fi
         state = true;
     }
 
